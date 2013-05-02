@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <meta name="description" content="Welcome to Jingdong Sun's Portfolio">
+    <title>Jingdong Sun's Portfolio</title>
+    <link rel='stylesheet' href='./css/style.css' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Russo+One' rel='stylesheet' type='text/css'>
+    <!--[if IE 7]>
+        <link rel='stylesheet' href='./css/style-ie.css' type='text/css'>
+    <![endif]-->
+  </head>
+
+  <body>
+    <div style="width:100%;min-width:940px;height:120px;background-color:rgb(0,0,0)">
+    </div>
+    <div class="wrapper">
+      <div id="site-title">
+        <div id="name">JINGDONG SUN
+          <div id="subname">noalac@DianGroup</div>
+        </div>
+        <div id="access">
+          <ul id="nav">
+            <li><a id="link-contact" href="#contact" onclick="changeNavState(id)">CONTACT</a></li>
+            <li><a id="link-about" href="#about" onclick="changeNavState(id)">ABOUT</a></li>
+            <li><a id="link-projects" href="#projects" onclick="changeNavState(id)">PROJECTS</a></li>
+            <li><a id="link-research" href="#research" onclick="changeNavState(id)">RESEARCH</a></li>
+            <li><a id="link-home" href="#home" onclick="changeNavState(id)">HOME</a></li>
+          </ul>
+        </div>
+      </div>
+      <div id="content">
+        <!-- will be filled by javascript -->
+      </div>
+    </div>
+    <!-- home tab -->
+    <script id="home-content" type="text/x-content">
+      <div id="home-gallery">
+        <div id="gallery-background" class="gallery-content">
+          <!-- <img src="./img/gallery-photo1.png"> -->
+          <span class="gallery-photo" style="opacity:1">
+            <img src="./img/gallery-photo1.png">
+          </span>
+          <span class="gallery-photo" style="opacity:0">
+            <img src="./img/gallery-photo2.png">
+          </span>
+          <span class="gallery-photo" style="opacity:0">
+            <img src="./img/gallery-photo3.png">
+          </span>
+          <!-- two arrows switching photos -->
+          <span id="arrows-left" onclick="window.clearInterval(timer); changePhotoLeft();timer = window.setInterval(changePhotoLeft,4000);">
+            <img src="./img/arrows-left.png">
+          </span>
+          <span id="arrows-right" onclick="window.clearInterval(timer); changePhotoRight();timer = window.setInterval(changePhotoRight,4000);">
+            <img src="./img/arrows-right.png">
+          </span>
+        </div>
+        <div id="gallery-text" class="gallery-content">
+          <h1>WELCOME TO MY PORTFOLIO</h1>
+          <p>Here is a collection of what I have done as an undergraduate student. My personal portfolio, including academical research and practical projects. You can get to know many aspects about me through this portfolio. If anything arouses your interests, feel free to contact me.</p>
+        </div>
+      </div>
+      <div>
+        <img src="./img/gallery-bottom.png" style="width:940px;height:40px;margin-bottom:24px;">
+      </div>
+    </script>
+    <!-- research tab -->
+    <script id="research-content" type="text/x-content">
+      <div id="reseach">
+        <p>Here is research page</p>
+      </div>
+    </script>
+    <!-- projects tab -->
+    <script id="projects-content" type="text/x-content">
+      <div id="projects">
+        <p>Here is projects page</p>
+      </div>
+    </script>
+    <!-- about tab -->
+    <script id="about-content" type="text/x-content">
+      <div id="about">
+        <p>Hi, I am Jingdong Sun (noalac is my nickname)</p>
+        <p>An undergraduate student @ Huazhong University of Science and Technology, Wuhan, China</p>
+        <p>I am a passionate programmer, and have been devoted to</p>
+      </div>
+    </script>
+    <!-- contact tab -->
+    <script id="contact-content" type="text/x-content">
+      <div id="contact-container">
+        <h1>CONTACT</h1>
+        <div id="contact-description">
+          <span id="contact-photo" onMouseOver="showDescription()" onMouseOut="hideDescription()">
+            <img src="./img/contact.png">
+          </span>
+          <div id="contact-text">
+            <h3>Address</h3>
+            <div>
+              <p>22#624. YunYuan Apartment,</p>
+              <p>Huazhong University of Science and Technology,</p>
+              <p>Wuhan, China, 430074.</p>
+            </div>
+            <h3>Link Connection</h3>
+            <ul id="contact">
+              <li>
+                <a id="mail" href="#" target="_blank">
+                  <span id="mail-address"></span>
+                </a>
+              </li>
+              <li>
+                <a id="linkedin" href="https://www.linkedin.com/pub/jingdong-sun/69/ab2/176" target="_blank">
+                  Jingdong Sun@LinkedIn
+                </a>
+              </li>
+              <li>
+                <a id="twitter" href="https://twitter.com/noalac" target="_blank">
+                  @NoalacSun
+                </a>
+              </li>
+            </ul>
+            <div id="contact-photo-description">
+              <p>My favourite building in campus :</p>
+              <p>East Ninth Teaching Building@HUST</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </script>
+    <!-- animation between tabs on navigation -->
+    <script async type="text/javascript" src="./application.js"></script>
+    <!-- go back to top function -->
+    <script type="text/javascript" src="./backtop.js"></script>
+    <!-- change gallery photo when click on arrows -->
+    <script type="text/javascript">
+      function startrun(obj,target,init,old_obj){
+        // initialize and let obj be above old_obj
+        obj.style.marginLeft = init+"px";
+        obj.style.opacity = 1;
+        clearInterval(obj.timer);
+        obj.style.zIndex = 1;
+        // set interval and animations
+        obj.timer = setInterval(function() {
+          var speed = 0;
+          if (target < init) { speed -= 20; }
+          else { speed += 20; }
+          if (init == target) {
+            obj.style.zIndex = 0;
+            old_obj.style.opacity = 0;
+            clearInterval(obj.timer);
+          } else {
+            init+=speed;
+            obj.style.marginLeft = init+"px";
+          }
+        }, 15);
+      }
+      function changePhotoLeft() {
+        var container;
+        if (document.getElementById ("gallery-background")) {
+          container = document.getElementById ("gallery-background");
+        } else { return; }   
+        if (container.getElementsByClassName) {
+          var photos = container.getElementsByClassName ("gallery-photo");
+          for (var i = 0; i < photos.length; i++) {
+            var current = photos[i];
+            var target = 0; 
+            if (1 == current.style.opacity) {
+              target = i + 1;
+              if (target >= photos.length) {
+                target-=photos.length;
+              }
+              startrun(photos[target], 0, 940, current);
+              break;
+            }
+          }
+        }
+      }
+      function changePhotoRight() {
+        var container;
+        if (document.getElementById ("gallery-background")) {
+          container = document.getElementById ("gallery-background");
+        } else { return; }   
+        if (container.getElementsByClassName) {
+          var photos = container.getElementsByClassName ("gallery-photo");
+          for (var i = 0; i < photos.length; i++) {
+            var current = photos[i];
+            if (1 == current.style.opacity) {
+              var target = i - 1;
+              if (target < 0) {
+                target+=photos.length;
+              }
+              photos[target].style.marginLeft = "0px";
+              photos[target].style.opacity = 1;
+              startrun(current, 940, 0, current);
+              break;
+            }
+          }
+        }
+      }
+      var timer = window.setInterval("changePhotoRight()",4000);
+    </script>
+    <!-- change the nav tab state and color -->
+    <script type="text/javascript">
+      function changeNavState(target) {
+        var objs = document.getElementById("nav").getElementsByTagName("li");
+        for (var i=0; i < objs.length; i++) {
+          if (objs[i].innerHTML.indexOf(target) > 0) {
+            objs[i].innerHTML = 
+              objs[i].innerHTML.replace(/(<a )/, '$1style="color:rgb(0,169,255)" ');
+          } else {
+            objs[i].innerHTML = 
+              objs[i].innerHTML.replace(/style[^ ]* /, ' ');
+          }
+        }
+      }
+    </script>
+    <!-- show or hide contact photo description -->
+    <script type="text/javascript">
+      function showDescription() {
+        document.getElementById("contact-photo-description").style.opacity = 1;
+      }
+      function hideDescription() {
+        document.getElementById("contact-photo-description").style.opacity = 0;
+      }
+    </script>
+    <!-- footer shows my motto -->
+    <div style="width:100%;min-width:940px;height:80px;background-color:rgb(0,0,0)">
+      <div id="motto" class="wrapper">
+        <p>This is no such thing as FAILURE</p>
+        <p>Just the temporary absence of SUCCESS</p>
+      </div>
+    </div>
+  </body>
+</html>
