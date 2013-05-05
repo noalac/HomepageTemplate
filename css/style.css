@@ -27,7 +27,7 @@ body {
 }
 
 #name {
-    top: 40px;
+    top: 20px;
     width: 300px;
     min-height: 34px;
     line-height:34px;
@@ -44,7 +44,7 @@ body {
 }
 
 #access {
-    top: 74px;
+    top: 60px;
     width: 940px;
     min-height: 25px;
     position: absolute;
@@ -312,3 +312,9 @@ body {
     opacity: .6;
 }
 
+.banner {
+    width:100%;
+    min-width:940px;
+    height:100px;
+    background-color:rgb(0,0,0);
+}
