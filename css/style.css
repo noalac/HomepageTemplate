@@ -110,17 +110,20 @@ body {
     min-height:107px;
     min-width:940px;
     z-index:2;
-}
-
-#gallery-text h1 {
     text-align:center;
 }
-#gallery-text p {
-    margin-left: 60px;
-    margin-right: 50px;
-    margin-top:0px;
-    font-size:20px;
+
+#gallery-description {
+    overflow:hidden;
+    height:30px;
 }
+#gallery-description p {
+    margin-top:0px;
+    margin-bottom:0px;
+    font-size:20px;
+    height:30px;
+}
+
 
 .gallery-content {
     position:absolute;
@@ -308,5 +311,4 @@ body {
     cursor: pointer;
     opacity: .6;
 }
-
 
