@@ -7,13 +7,14 @@
     <title>Jingdong Sun's Portfolio</title>
     <link rel='stylesheet' href='./css/style.css' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Russo+One' rel='stylesheet' type='text/css'>
-    <!--[if IE 7]>
-        <link rel='stylesheet' href='./css/style-ie.css' type='text/css'>
+    <!--[if lte IE 8]>
+    <link rel='stylesheet' href='./css/style-ie.css' type='text/css'>
     <![endif]-->
   </head>
 
   <body>
     <div style="width:100%;min-width:940px;height:120px;background-color:rgb(0,0,0)">
+      <!-- <img style="position:absolute;left:450px;" src="./img/title-logo.png"> -->
     </div>
     <div class="wrapper">
       <div id="site-title">
@@ -38,27 +39,26 @@
     <script id="home-content" type="text/x-content">
       <div id="home-gallery">
         <div id="gallery-background" class="gallery-content">
-          <!-- <img src="./img/gallery-photo1.png"> -->
-          <span class="gallery-photo" style="opacity:1">
-            <img src="./img/gallery-photo1.png">
-          </span>
-          <span class="gallery-photo" style="opacity:0">
-            <img src="./img/gallery-photo2.png">
-          </span>
-          <span class="gallery-photo" style="opacity:0">
+          <span class="gallery-photo" style="opacity:0;filter:Alpha(opacity=0)">
             <img src="./img/gallery-photo3.png">
           </span>
+          <span class="gallery-photo" style="opacity:0;filter:Alpha(opacity=0)">
+            <img src="./img/gallery-photo2.png">
+          </span>
+          <span class="gallery-photo" style="opacity:1;filter:Alpha(opacity=100)">
+            <img src="./img/gallery-photo1.png">
+          </span>        
           <!-- two arrows switching photos -->
-          <span id="arrows-left" onclick="window.clearInterval(timer); changePhotoLeft();timer = window.setInterval(changePhotoLeft,4000);">
+          <span id="arrows-left" onclick="window.clearInterval(timer); changePhotoLeft();timer = window.setInterval(changePhotoLeft,5000);">
             <img src="./img/arrows-left.png">
           </span>
-          <span id="arrows-right" onclick="window.clearInterval(timer); changePhotoRight();timer = window.setInterval(changePhotoRight,4000);">
+          <span id="arrows-right" onclick="window.clearInterval(timer); changePhotoRight();timer = window.setInterval(changePhotoRight,5000);">
             <img src="./img/arrows-right.png">
           </span>
         </div>
         <div id="gallery-text" class="gallery-content">
           <h1>WELCOME TO MY PORTFOLIO</h1>
-          <p>Here is a collection of what I have done as an undergraduate student. My personal portfolio, including academical research and practical projects. You can get to know many aspects about me through this portfolio. If anything arouses your interests, feel free to contact me.</p>
+          <p>Here is a collection of my work, including academical research and practical projects.</p>
         </div>
       </div>
       <div>
@@ -132,47 +132,59 @@
     <script type="text/javascript" src="./backtop.js"></script>
     <!-- change gallery photo when click on arrows -->
     <script type="text/javascript">
-      function startrun(obj,target,init,old_obj){
-        // initialize and let obj be above old_obj
-        obj.style.marginLeft = init+"px";
-        obj.style.opacity = 1;
-        clearInterval(obj.timer);
-        obj.style.zIndex = 1;
-        // set interval and animations
+      if (!document.getElementsByClassName) { 
+        document.getElementsByClassName = function() {   
+          var tTagName = "*";   
+          if (arguments.length > 1) {   
+            tTagName = arguments[1];   
+          }   
+          if (arguments.length > 2) {   
+            var pObj = arguments[2]   
+          } else {   
+            var pObj = document;   
+          }   
+          var objArr = pObj.getElementsByTagName(tTagName);   
+          var tRObj = new Array();   
+          for ( var i = 0; i < objArr.length; i++) {   
+            if (objArr[i].className == arguments[0]) {   
+              tRObj.push(objArr[i]);   
+            }   
+          }   
+          return tRObj;   
+        }   
+      }  
+      function changeDescription(tar_num) {
+        var text, title, description;
+        if (document.getElementById("gallery-text")) {
+          text = document.getElementById("gallery-text");
+        } else { return; }
+        if (tar_num == 2) {
+          title = "WELCOME TO MY PORTFOLIO";
+          description = "Here is a collection of my work, including academical research and practical projects.";
+        } else if (tar_num == 1) {
+          title = "TITLE 2";
+          description = "It is a good day today";
+        } else {
+          title = "TITLE 3";
+          description = "Description 3";
+        }
+        text.innerHTML = text.innerHTML.replace(/(<[Hh]1>).*(<\/[Hh]1>)/, '$1'+title+'$2');
+        text.innerHTML = text.innerHTML.replace(/(<[Pp]>).*(<\/[Pp]>)/, '$1'+description+'$2');
+      }
+      function startrun(obj, old_obj){
+        var op = 0;
         obj.timer = setInterval(function() {
-          var speed = 0;
-          if (target < init) { speed -= 20; }
-          else { speed += 20; }
-          if (init == target) {
-            obj.style.zIndex = 0;
-            old_obj.style.opacity = 0;
+          op = Number(obj.style.opacity);
+          if (op > 0.95) {
             clearInterval(obj.timer);
+            obj.style.opacity = 1;
+            old_obj.style.opacity = 0;
           } else {
-            init+=speed;
-            obj.style.marginLeft = init+"px";
+            op += 0.02;
+            obj.style.opacity = String(op);
+            old_obj.style.opacity = String(1 - op);
           }
         }, 15);
-      }
-      function changePhotoLeft() {
-        var container;
-        if (document.getElementById ("gallery-background")) {
-          container = document.getElementById ("gallery-background");
-        } else { return; }   
-        if (container.getElementsByClassName) {
-          var photos = container.getElementsByClassName ("gallery-photo");
-          for (var i = 0; i < photos.length; i++) {
-            var current = photos[i];
-            var target = 0; 
-            if (1 == current.style.opacity) {
-              target = i + 1;
-              if (target >= photos.length) {
-                target-=photos.length;
-              }
-              startrun(photos[target], 0, 940, current);
-              break;
-            }
-          }
-        }
       }
       function changePhotoRight() {
         var container;
@@ -183,20 +195,75 @@
           var photos = container.getElementsByClassName ("gallery-photo");
           for (var i = 0; i < photos.length; i++) {
             var current = photos[i];
+            var target = 0; 
             if (1 == current.style.opacity) {
-              var target = i - 1;
+              target = i - 1;
+              if (target < 0) {
+                target+=photos.length;
+              }                
+              startrun(photos[target], current);
+              changeDescription(target);
+              break;
+            }
+          }
+        } else if (document.getElementsByClassName) {
+          // for IE
+          var photos = document.getElementsByClassName("gallery-photo");
+          for (var i = 0; i < photos.length; i++) {
+            var target;
+            if ('Alpha(opacity=100)' == photos[i].style.filter) {
+              target = i - 1;
               if (target < 0) {
                 target+=photos.length;
               }
-              photos[target].style.marginLeft = "0px";
-              photos[target].style.opacity = 1;
-              startrun(current, 940, 0, current);
+              photos[i].style.filter='Alpha(opacity=0)';
+              photos[target].style.filter='Alpha(opacity=100)';
+              changeDescription(target);
               break;
             }
           }
         }
       }
-      var timer = window.setInterval("changePhotoRight()",4000);
+      function changePhotoLeft() {
+        var container; 
+        if (document.getElementById ("gallery-background")) {
+          container = document.getElementById ("gallery-background");
+        } else { return; }
+
+        if (container.getElementsByClassName) {
+          var photos = container.getElementsByClassName("gallery-photo");
+          for (var i = 0; i < photos.length; i++) {
+            var current = photos[i];
+            var target = 0;
+            if (1 == current.style.opacity) {
+              target = i + 1;
+              if (target >= photos.length) {
+                target-=photos.length;
+              }
+              startrun(photos[target], current);
+              changeDescription(target);
+              break;
+            }
+          }
+        } else if (document.getElementsByClassName) {
+          // for IE
+          var photos = document.getElementsByClassName("gallery-photo");
+          for (var i = 0; i < photos.length; i++) {
+            var target;
+            if ('Alpha(opacity=100)' == photos[i].style.filter) {
+              target = i + 1;
+              if (target >= photos.length) {
+                target-=photos.length;
+              }
+              photos[i].style.filter='Alpha(opacity=0)';
+              photos[target].style.filter='Alpha(opacity=100)';
+              changeDescription(target);
+              break;
+            }
+          }
+        }
+      }
+      var timer = window.setInterval("changePhotoRight()",5000);
     </script>
     <!-- change the nav tab state and color -->
     <script type="text/javascript">
@@ -217,9 +284,11 @@
     <script type="text/javascript">
       function showDescription() {
         document.getElementById("contact-photo-description").style.opacity = 1;
+        document.getElementById("contact-photo-description").style.filter = "Alpha(opacity=100)";
       }
       function hideDescription() {
         document.getElementById("contact-photo-description").style.opacity = 0;
+        document.getElementById("contact-photo-description").style.filter = "Alpha(opacity=0)";
       }
     </script>
     <!-- footer shows my motto -->
@@ -230,4 +299,10 @@
       </div>
     </div>
   </body>
+  <!--[if lte IE 8]>
+  <div id="warning">
+    <p class="wrapper">*Detecting the current brower version is Microsoft Internet Explorer 8 (IE8) or below (IE7 IE6 etc.).</p>
+    <p class="wrapper">**It is highly recommended to use Chrome / Firefox / IE9 to enjoy the whole animations and effects of my portfolio website.</p>
+  </div>
+  <![endif]-->
 </html>

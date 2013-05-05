@@ -1,0 +1,37 @@
+#gallery-text {
+    filter: Alpha(opacity=80); /* IE6/IE7/8 */
+}
+
+#arrows-left {
+    filter: Alpha(opacity=50); /* IE6/IE7/8 */
+}
+
+#arrows-right {
+    filter: Alpha(opacity=50); /* IE6/IE7/8 */
+}
+
+#arrows-left:hover {
+    filter: Alpha(opacity=99); /* IE6/IE7/8 */
+}
+#arrows-right:hover {
+    filter: Alpha(opacity=99); /* IE6/IE7/8 */
+}
+
+#warning {
+    width:100%;
+    min-width:940px;
+    background-color:#000;
+}
+#warning p {
+    font-size:12px;
+    margin-top:0px;
+    margin-bottom:0px;
+    text-align:center;
+}
+
+#contact-photo-description {
+    filter: Alpha(opacity=0); /* IE6/IE7/8 */
+}
+.backToTop {
+    filter: Alpha(opacity=60);
+}
