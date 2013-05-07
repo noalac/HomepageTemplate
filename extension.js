@@ -1,5 +1,3 @@
-function showDescription(){document.getElementById("contact-photo-description").style.opacity=1;document.getElementById("contact-photo-description").style.filter="Alpha(opacity=100)";}
-function hideDescription(){document.getElementById("contact-photo-description").style.opacity=0;document.getElementById("contact-photo-description").style.filter="Alpha(opacity=0)";}
 if(!document.getElementsByClassName){document.getElementsByClassName=function(){var tTagName="*";if(arguments.length>1){tTagName=arguments[1];}
 if(arguments.length>2){var pObj=arguments[2]}else{var pObj=document;}
 var objArr=pObj.getElementsByTagName(tTagName);var tRObj=new Array();for(var i=0;i<objArr.length;i++){if(objArr[i].className==arguments[0]){tRObj.push(objArr[i]);}}
