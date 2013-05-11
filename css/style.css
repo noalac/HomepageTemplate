@@ -285,6 +285,7 @@ body {
 }
 .container-text h3 {
     margin-top:0px;
+    margin-bottom:10px;
     color:rgb(0, 169, 255);
 }
 .container-text p {
@@ -293,6 +294,9 @@ body {
 }
 .container-text div {
     margin-bottom:20px;
+}
+#qr-code {
+    float:right;
 }
 #about-me-photo {
     width:300px;
@@ -304,6 +308,7 @@ body {
 #contact {
     list-style-type:none;
     padding-left:0px;
+    margin-bottom:20px;
 }
 #twitter {
     background:url("../img/twitter-icon.png") no-repeat;
@@ -338,6 +343,7 @@ body {
     -o-transition:color .5s;
     transition:color .5s;
 }
+
 #contact li a {
     text-decoration:none;
     color:#ccc;
@@ -388,13 +394,82 @@ body {
     font-size:20px;
 }
 .opensource-screenshots {
+    margin-top:10px;
     width:330px;
     height:270px;
     background-color:#444;
-    margin-bottom:20px;
+    margin-bottom:10px;
 }
 .opensource-screenshots img {
     margin-top:15px;
     margin-left:15px;
 }
+
+.math-model {
+    margin-top:50px;
+}
+.math-model h3 {
+    color:#ddd;
+    font-size:20px;
+    margin-top:10px;
+}
+.math-model-description {
+    margin-top:10px;
+}
+#solar-house-description {
+    width:520px;
+}
+#solar-house-description div{
+    margin-top:0px;
+    margin-bottom:10px;
+    margin-left:10px;
+}
+#solar-house-description strong{
+    color:#ddd;
+    font-size:16px;
+}
+#solar-house-description a{
+    color:#ccc;
+    -webkit-transition:color .5s;
+    -moz-transition:color .5s;
+    -o-transition:color .5s;
+    transition:color .5s;
+
+}
+#solar-house-description a:hover{
+    color:rgb(255,122,0);
+    -webkit-transition:color .5s;
+    -moz-transition:color .5s;
+    -o-transition:color .5s;
+    transition:color .5s;
+}
+
+#water-strategy-description {
+    width:520px;
+}
+#water-strategy-description div{
+    margin-top:0px;
+    margin-bottom:10px;
+    margin-left:10px;
+}
+#water-strategy-description strong{
+    color:#ddd;
+    font-size:16px;
+}
+#water-strategy-description a{
+    color:#ccc;
+    -webkit-transition:color .5s;
+    -moz-transition:color .5s;
+    -o-transition:color .5s;
+    transition:color .5s;
+
+}
+#water-strategy-description a:hover{
+    color:rgb(42,221,178);
+    -webkit-transition:color .5s;
+    -moz-transition:color .5s;
+    -o-transition:color .5s;
+    transition:color .5s;
+}
+
 
