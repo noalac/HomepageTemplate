@@ -1,10 +1,5 @@
-Portfolio
+Template of my Online Homepage
 =========
 
-My online portfolio, using pure Javascript and CSS.
-
-Still under heavy building.
-Currently complete two tabs: home and contact
-
-To see how it works, please visit http://portfoliosjd.sinaapp.com
-
+My online homepage, using pure Javascript and CSS.
+Double click "index.html" to run. 
