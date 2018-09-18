@@ -6,8 +6,8 @@ html {
 body {
     margin:0;
     padding:0;
-    background:#444;
-    color:#ccc;
+    background:#FFF; /* main body bg color */
+    color:#000;      /* main font color */
     font-size:14px;
     line-height:21px;
     font-family:Arial,Helvetica,sans-serif;
@@ -15,11 +15,11 @@ body {
     -webkit-text-size-adjust:100%;
 }
 ::-webkit-scrollbar{
-    width:6px;
+    width:8px;
     background:#000;
 }
 ::-webkit-scrollbar-thumb{
-    background:#ccc;
+    background:#CCC;
 }
 
 #top-banner {
@@ -62,18 +62,18 @@ body {
 
 #name {
     top: 20px;
-    width: 300px;
-    min-height: 34px;
-    line-height:34px;
+    width: 450px;
+    min-height: 37px;
+    line-height:37px;
     position: absolute;
-    font-family: 'Russo One', cursive;
+    font-family:'Verdana';
     font-size:28px;
     color:#fff;
 }
 
 #subname {
-    font-family:Arial,Helvetica,sans-serif;
-    font-size:26px;
+    font-family:'Verdana';
+    font-size:22px;
     color:rgb(0, 169, 255);
 }
 
@@ -139,7 +139,7 @@ body {
 
 #gallery-text {
     margin-top:330px;
-    background-color:#222;
+    background-color:#DDD;
     opacity:0.8;
     min-height:107px;
     min-width:940px;
@@ -170,9 +170,10 @@ body {
     height:437px;
 }
 
-#motto p { 
-    margin: 10px auto;
-    font-family: 'Russo One', cursive;
+#motto p {
+    color:#FFF;	
+    margin:10px auto;
+    font-family:'Verdana';
     font-size:16px;
     text-align:right;
 }
@@ -226,7 +227,7 @@ body {
     margin-bottom:50px;
 }
 .container-block {
-    background-color:#333;
+    background-color:#DDD;
 }
 .container-block h1{
     position:relative;
@@ -241,9 +242,33 @@ body {
     margin-right:40px;
     bottom:40px;
 }
+
+.container-description a {
+    font-weight:bold;
+    color:#000;
+    text-decoration:none;
+    -webkit-transition:color .5s;
+    -moz-transition:color .5s;
+    -o-transition:color .5s;
+    transition:color .5s;
+}
+.container-description a:hover {
+    font-weight:bold;
+    color:rgb(0,169,255);
+    -webkit-transition:color .5s;
+    -moz-transition:color .5s;
+    -o-transition:color .5s;
+    transition:color .5s;
+}
+
+.container-desc-col-2 {
+    display:inline-block;
+    width:49%;
+}
+
 .container-description-reverse {
-    position:relative;
-    margin-top:100px;
+    /* position:relative; */
+    margin-top:80px;
     margin-right:50px;
     margin-bottom:0px;
     bottom:40px;
@@ -260,7 +285,7 @@ body {
     margin-bottom:0px;
 }
 .container-description-reverse h3 a {
-    color:#ddd;
+    color:#000;
     text-decoration:none;
     -webkit-transition:color .5s;
     -moz-transition:color .5s;
@@ -281,7 +306,10 @@ body {
 }
 .container-text {
     position:relative;
-    float:right;
+    /* float:right; */
+    display:inline-block;
+    vertical-align:top;
+    margin-left:20px;
 }
 .container-text h3 {
     margin-top:0px;
@@ -300,7 +328,8 @@ body {
 }
 #about-me-photo {
     width:300px;
-    height:225px;
+    height:300px;
+    overflow:hidden;
 }
 #about-me-text {
     width:520px;
@@ -308,7 +337,7 @@ body {
 #contact {
     list-style-type:none;
     padding-left:0px;
-    margin-bottom:20px;
+    margin-bottom:18px;
 }
 #twitter {
     background:url("../img/twitter-icon.png") no-repeat;
@@ -346,7 +375,7 @@ body {
 
 #contact li a {
     text-decoration:none;
-    color:#ccc;
+    color:#000;
     -webkit-transition:color .5s;
     -moz-transition:color .5s;
     -o-transition:color .5s;
@@ -354,8 +383,8 @@ body {
 }
 #contact-photo {
     position:relative;
-    width:520px;
-    height:300px;
+    width:600px;
+    height:430px;
     overflow:hidden;
 }
 .backToTop {
@@ -383,6 +412,18 @@ body {
     height:100px;
     background-color:rgb(0,0,0);
 }
+
+
+#research-photo {
+    width:300px;
+    height:310px;
+    overflow:hidden;
+}
+#research-text {
+    width:520px;
+}
+
+
 .opensource-projects {
     display:inline-block;
     width:400px;
@@ -390,7 +431,7 @@ body {
 }
 
 .opensource-projects h3 {
-    color:#ddd;
+    /* color:#ddd; */
     font-size:20px;
 }
 .opensource-screenshots {
@@ -404,72 +445,4 @@ body {
     margin-top:15px;
     margin-left:15px;
 }
-
-.math-model {
-    margin-top:50px;
-}
-.math-model h3 {
-    color:#ddd;
-    font-size:20px;
-    margin-top:10px;
-}
-.math-model-description {
-    margin-top:10px;
-}
-#solar-house-description {
-    width:520px;
-}
-#solar-house-description div{
-    margin-top:0px;
-    margin-bottom:10px;
-    margin-left:10px;
-}
-#solar-house-description strong{
-    color:#ddd;
-    font-size:16px;
-}
-#solar-house-description a{
-    color:#ccc;
-    -webkit-transition:color .5s;
-    -moz-transition:color .5s;
-    -o-transition:color .5s;
-    transition:color .5s;
-
-}
-#solar-house-description a:hover{
-    color:rgb(255,122,0);
-    -webkit-transition:color .5s;
-    -moz-transition:color .5s;
-    -o-transition:color .5s;
-    transition:color .5s;
-}
-
-#water-strategy-description {
-    width:520px;
-}
-#water-strategy-description div{
-    margin-top:0px;
-    margin-bottom:10px;
-    margin-left:10px;
-}
-#water-strategy-description strong{
-    color:#ddd;
-    font-size:16px;
-}
-#water-strategy-description a{
-    color:#ccc;
-    -webkit-transition:color .5s;
-    -moz-transition:color .5s;
-    -o-transition:color .5s;
-    transition:color .5s;
-
-}
-#water-strategy-description a:hover{
-    color:rgb(42,221,178);
-    -webkit-transition:color .5s;
-    -moz-transition:color .5s;
-    -o-transition:color .5s;
-    transition:color .5s;
-}
-
 
