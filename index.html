@@ -376,7 +376,9 @@
 	      }).addTo(mymap);
               var marker = L.marker([37.981548, -91.722785]).addTo(mymap);
               /* important, rerender the map window to make sure all tiles are initialized*/
-              window.dispatchEvent(new Event('resize'));
+              var resizeEvent = window.document.createEvent('UIEvents'); 
+	      resizeEvent .initUIEvent('resize', true, false, window, 0); 
+              window.dispatchEvent(resizeEvent);
 	      marker.bindPopup("<b>EMC Lab, Missouri S&T</b><br>4000 Enterprise Dr, Rolla, MO");
             </script>
 	      </div>
