@@ -1,7 +1,5 @@
-Template of my Online Homepage
-=========
+Template for Personal Homepage
+================================
 
-My online homepage template, using pure Javascript and HTML/CSS.
-
-Download the entire package and double click "index.html" to run.
+My online homepage, please visit https://jingdsun.github.io
 
